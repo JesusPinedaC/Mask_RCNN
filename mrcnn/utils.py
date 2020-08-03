@@ -277,6 +277,8 @@ class Dataset(object):
             "source": source,
             "path": path,
         }
+        
+        
         image_info.update(kwargs)
         self.image_info.append(image_info)
 
@@ -872,7 +874,7 @@ def norm_boxes(boxes, shape):
     """
     h, w = shape
     scale = np.array([h - 1, w - 1, h - 1, w - 1])
-    shift = np.array([0, 0, 1, 1])
+    shift = np.array([0, 0, 1., 1.])
     return np.divide((boxes - shift), scale).astype(np.float32)
 
 
